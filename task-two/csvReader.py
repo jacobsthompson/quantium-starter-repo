@@ -1,6 +1,6 @@
 import pandas
 
-df = pandas.read_csv('daily_sales_data_0.csv', header=None)
+df = pandas.read_csv('../data/daily_sales_data_0.csv', header=None)
 
 productName = 'pink morsel'
 pink_df = df[df[0] == productName].copy()
