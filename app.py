@@ -31,14 +31,14 @@ app.layout = html.Div(style={
     'textAlign': 'center',
     'color': colors['text']
 },children=[
-    html.H1(children='Pink Morsel Sales'),
+    html.H1(id='header', children='Pink Morsel Sales'),
 
     html.Div(children='''
         A Line Chart Visualization of Pink Morsel Sales Over Time in Various Regions.
     '''),
 
     dcc.RadioItems(
-        id='region-selection',
+        id='radio',
         options=[{'label': 'All', 'value': 'All'}] +
                 [{'label': r, 'value': r} for r in regions],
         value='All',
@@ -47,12 +47,12 @@ app.layout = html.Div(style={
     ),
 
     dcc.Graph(
-        id='example-graph',
+        id='graph',
     )
 ])
 
-@app.callback(Output('example-graph', 'figure'),
-              Input('region-selection', 'value')
+@app.callback(Output('graph', 'figure'),
+              Input('radio', 'value')
               )
 
 def update_chart(selected_region):
